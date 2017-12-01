@@ -2,7 +2,7 @@ const RadioGroup = novi.ui.radioGroup;
 const Input = novi.ui.input;
 const Component = novi.react.Component;
 const React = novi.react.React;
-
+const Language = novi.language;
 export default class Body extends Component{
     constructor(props){
         super(props);
@@ -21,6 +21,8 @@ export default class Body extends Component{
 
         this._handleTimeChange = this._handleTimeChange.bind(this);
         this._handleRadioButtonClick = this._handleRadioButtonClick.bind(this);
+        this.messages = Language.getDataByKey("novi-plugin-countdown");
+
     }
 
     render(){
@@ -37,15 +39,15 @@ export default class Body extends Component{
         return (
             <div className="countdown-plugin-wrap" style={{"padding": "0 12px", "display": "flex", "flexDirection": "column", "justifyContent": "center", "height": "100%", "color": "#6E778A"}}>
                 <p className="novi-label" style={{"marginTop": "0"}}>
-                    Type:
+                    {this.messages.editor.body.type}
                 </p>
                 <RadioGroup options={["until", "since"]} value={this.state.type} onChange={this._handleRadioButtonClick}/>
                 <div style={{position: "relative"}}>
                     <p className="novi-label" style={{marginTop: 15}}>
-                        Time (Example - 1 Jan 1970 00:00):
+                        {this.messages.editor.body.time}
                     </p>
                     <Input onChange={this._handleTimeChange} value={this.state.time} style={inputStyle}/>
-                    <span className="countdown-warning" style={errorMessageStyle}>Invalid time format!</span>
+                    <span className="countdown-warning" style={errorMessageStyle}>{this.messages.editor.body.error}</span>
                 </div>
 
             </div>

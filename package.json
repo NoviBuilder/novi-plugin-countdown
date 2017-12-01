@@ -1,6 +1,6 @@
 {
   "name": "@novi_dev/novi-plugin-countdown",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Novi Countdown Plugin",
   "main": "dist/novi-plugin-countdown.js",
   "repository": {
